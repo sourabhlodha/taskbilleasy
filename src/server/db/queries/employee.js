@@ -5,6 +5,13 @@ function getAllemployeeuserdata() {
   .select('*');
 }
 
+function getEmployeeDataAndCompanyData() {
+  return knex('employeeuserdata')
+  .join('employeecompanydata', 'employeeuserdata.id', 'employeecompanydata.user_id')
+  .select('employeeuserdata.name as employee', 'employeecompanydata.salarydetails as salary');
+}
+
+
 function getSingleEmployeeData(id) {
   return knex('employeeuserdata')
   .select('*')
@@ -36,5 +43,6 @@ module.exports = {
   getSingleEmployeeData,
   addEmployeeData,
   updateEmployeeData,
+  getEmployeeDataAndCompanyData,
   deleteEmployeeData
 };
