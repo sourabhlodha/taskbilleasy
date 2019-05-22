@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
     table.string('name').notNullable().unique();
     table.string('birthday').notNullable();
     table.string('designation').notNullable();
-    table.integer('employeeid').notNullable();
+    table.integer('id').notNullable();
   });
 };
 
